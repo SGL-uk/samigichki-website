@@ -1,0 +1,1617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sami Gichki Consulting | Culture & Governance Risk</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  @font-face {
+    font-family: 'Glacial Indifference';
+    src: url('https://fonts.cdnfonts.com/s/17359/GlacialIndifference-Regular.woff') format('woff');
+    font-weight: 400;
+  }
+  @font-face {
+    font-family: 'Glacial Indifference';
+    src: url('https://fonts.cdnfonts.com/s/17359/GlacialIndifference-Bold.woff') format('woff');
+    font-weight: 700;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0D3B66;
+    --navy-dark: #092d50;
+    --coral: #F95738;
+    --coral-dark: #e04020;
+    --mint: #A8E6CF;
+    --mint-dark: #7ecfaf;
+    --white: #ffffff;
+    --light-grey: #F4F6F8;
+    --dark-grey: #4A5568;
+    --mid-grey: #e2e8f0;
+    --font-display: 'Glacial Indifference', 'Century Gothic', Futura, sans-serif;
+    --font-body: 'Barlow', 'Gill Sans', Nunito, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--dark-grey);
+    background: var(--white);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAV ── */
+  nav {
+    background: var(--navy);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 16px rgba(13,59,102,0.18);
+  }
+  .nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 68px;
+  }
+  .nav-logo {
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: var(--white);
+    font-size: 1.1rem;
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+    cursor: pointer;
+  }
+  .nav-logo span {
+    font-weight: 300;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    color: var(--mint);
+    font-family: var(--font-body);
+    text-transform: uppercase;
+  }
+  .nav-links {
+    display: flex;
+    list-style: none;
+    gap: 0;
+  }
+  .nav-links li a {
+    display: block;
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: 0.88rem;
+    padding: 0.5rem 1rem;
+    letter-spacing: 0.03em;
+    transition: color 0.2s;
+    cursor: pointer;
+  }
+  .nav-links li a:hover, .nav-links li a.active { color: var(--mint); }
+  .nav-cta {
+    background: var(--coral);
+    color: var(--white) !important;
+    padding: 0.5rem 1.25rem !important;
+    border-radius: 3px;
+    font-weight: 700 !important;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--coral-dark) !important; color: var(--white) !important; }
+
+  /* ── PAGE SYSTEM ── */
+  .page { display: none; }
+  .page.active { display: block; }
+
+  /* ── SHARED LAYOUT ── */
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+  .section { padding: 5rem 0; }
+  .section-alt { background: var(--light-grey); }
+  .section-navy { background: var(--navy); }
+  .section-title {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 0.75rem;
+    line-height: 1.15;
+  }
+  .section-title-light { color: var(--white); }
+  .section-subtitle {
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    color: var(--dark-grey);
+    max-width: 640px;
+    line-height: 1.65;
+    margin-bottom: 3rem;
+  }
+  .section-subtitle-light { color: rgba(255,255,255,0.78); }
+  .eyebrow {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--coral);
+    margin-bottom: 0.75rem;
+    display: block;
+  }
+  .eyebrow-mint { color: var(--mint); }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--navy);
+    padding: 7rem 0 6rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    right: -120px;
+    top: -80px;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    border: 80px solid rgba(168,230,207,0.08);
+    pointer-events: none;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    right: 80px;
+    bottom: -120px;
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    border: 40px solid rgba(249,87,56,0.07);
+    pointer-events: none;
+  }
+  .hero-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(168,230,207,0.15);
+    border: 1px solid rgba(168,230,207,0.3);
+    color: var(--mint);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.4rem 1rem;
+    border-radius: 2px;
+    margin-bottom: 1.5rem;
+  }
+  .hero-title {
+    font-family: var(--font-display);
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.01em;
+  }
+  .hero-title em { color: var(--coral); font-style: normal; }
+  .hero-lead {
+    color: rgba(255,255,255,0.75);
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+    max-width: 500px;
+  }
+  .hero-actions { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--coral);
+    color: var(--white);
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 0.85rem 2rem;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.2s, transform 0.1s;
+    letter-spacing: 0.02em;
+  }
+  .btn-primary:hover { background: var(--coral-dark); transform: translateY(-1px); }
+  .btn-ghost {
+    color: rgba(255,255,255,0.8);
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 0.85rem 1.5rem;
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 3px;
+    cursor: pointer;
+    background: transparent;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.2s;
+    letter-spacing: 0.02em;
+  }
+  .btn-ghost:hover { border-color: var(--mint); color: var(--mint); }
+  .btn-navy {
+    background: var(--navy);
+    color: var(--white);
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 0.85rem 2rem;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.2s;
+    letter-spacing: 0.02em;
+  }
+  .btn-navy:hover { background: var(--navy-dark); }
+
+  .hero-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .hero-stat {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 4px;
+    padding: 1.5rem;
+    text-align: center;
+  }
+  .hero-stat-num {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--coral);
+    line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+  .hero-stat-label {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.4;
+    font-weight: 400;
+  }
+
+  /* ── CARDS ── */
+  .card {
+    background: var(--white);
+    border: 1px solid var(--mid-grey);
+    border-radius: 4px;
+    padding: 2rem;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .card:hover { box-shadow: 0 8px 32px rgba(13,59,102,0.1); transform: translateY(-2px); }
+  .card-accent { border-top: 4px solid var(--coral); }
+  .card-accent-mint { border-top: 4px solid var(--mint); }
+  .card-icon {
+    width: 48px;
+    height: 48px;
+    background: rgba(249,87,56,0.1);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+  }
+  .card-icon svg { width: 24px; height: 24px; stroke: var(--coral); fill: none; stroke-width: 1.5; }
+  .card-icon-mint { background: rgba(168,230,207,0.2); }
+  .card-icon-mint svg { stroke: var(--navy); }
+  .card-title {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 0.75rem;
+  }
+  .card-body { font-size: 0.95rem; line-height: 1.65; color: var(--dark-grey); }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+
+  /* ── DOMAIN BLOCKS ── */
+  .domain-block { display: flex; gap: 2rem; align-items: flex-start; }
+  .domain-num {
+    font-family: var(--font-display);
+    font-size: 3rem;
+    font-weight: 700;
+    color: rgba(168,230,207,0.4);
+    line-height: 1;
+    flex-shrink: 0;
+    width: 64px;
+  }
+  .domain-content h3 {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+  }
+  .domain-content p { color: rgba(255,255,255,0.72); font-size: 0.95rem; line-height: 1.65; margin-bottom: 1rem; }
+  .domain-list { list-style: none; padding: 0; }
+  .domain-list li {
+    color: rgba(255,255,255,0.65);
+    font-size: 0.88rem;
+    padding: 0.3rem 0;
+    padding-left: 1.25rem;
+    position: relative;
+  }
+  .domain-list li::before { content: '—'; position: absolute; left: 0; color: var(--mint); }
+
+  /* ── TESTIMONIALS ── */
+  .testimonial {
+    background: var(--white);
+    border-left: 4px solid var(--mint);
+    padding: 1.75rem 2rem;
+    border-radius: 0 4px 4px 0;
+    position: relative;
+  }
+  .testimonial-quote { font-style: italic; font-size: 1rem; line-height: 1.7; color: var(--dark-grey); margin-bottom: 1rem; }
+  .testimonial-author { font-weight: 700; font-size: 0.88rem; color: var(--navy); }
+  .testimonial-role { font-size: 0.82rem; color: var(--dark-grey); }
+
+  /* ── PROCESS ── */
+  .process-steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; position: relative; }
+  .process-steps::before {
+    content: '';
+    position: absolute;
+    top: 28px;
+    left: 10%;
+    right: 10%;
+    height: 2px;
+    background: var(--mid-grey);
+    z-index: 0;
+  }
+  .process-step { text-align: center; padding: 0 0.5rem; position: relative; z-index: 1; }
+  .step-circle {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--navy);
+    color: var(--white);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    position: relative;
+    z-index: 1;
+  }
+  .step-circle.coral { background: var(--coral); }
+  .step-title { font-family: var(--font-display); font-size: 0.88rem; font-weight: 700; color: var(--navy); margin-bottom: 0.4rem; }
+  .step-desc { font-size: 0.8rem; color: var(--dark-grey); line-height: 1.5; }
+
+  /* ── SECTOR PILLS ── */
+  .sector-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+  .sector-card {
+    background: var(--white);
+    border: 1px solid var(--mid-grey);
+    border-radius: 4px;
+    padding: 1.5rem;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+  }
+  .sector-card:hover { border-color: var(--coral); box-shadow: 0 4px 16px rgba(13,59,102,0.08); }
+  .sector-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(13,59,102,0.07);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .sector-icon svg { width: 20px; height: 20px; stroke: var(--navy); fill: none; stroke-width: 1.5; }
+  .sector-name { font-family: var(--font-display); font-weight: 700; color: var(--navy); font-size: 0.95rem; margin-bottom: 0.3rem; }
+  .sector-desc { font-size: 0.85rem; color: var(--dark-grey); line-height: 1.5; }
+
+  /* ── OUTPUTS ── */
+  .output-item { display: flex; gap: 1.25rem; align-items: flex-start; padding: 1.5rem 0; border-bottom: 1px solid var(--mid-grey); }
+  .output-item:last-child { border-bottom: none; }
+  .output-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--coral); flex-shrink: 0; margin-top: 6px; }
+  .output-title { font-family: var(--font-display); font-weight: 700; color: var(--navy); margin-bottom: 0.35rem; }
+  .output-desc { font-size: 0.93rem; color: var(--dark-grey); line-height: 1.6; }
+
+  /* ── PILOT BANNER ── */
+  .pilot-banner {
+    background: linear-gradient(135deg, rgba(249,87,56,0.06) 0%, rgba(168,230,207,0.12) 100%);
+    border: 1px solid rgba(249,87,56,0.2);
+    border-radius: 6px;
+    padding: 2.5rem 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .pilot-banner h3 {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 0.5rem;
+  }
+  .pilot-banner p { font-size: 0.95rem; color: var(--dark-grey); max-width: 520px; line-height: 1.65; }
+
+  /* ── VALUES ── */
+  .values-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+  .value-item { text-align: center; }
+  .value-word {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--mint);
+    margin-bottom: 0.5rem;
+  }
+  .value-desc { font-size: 0.9rem; color: rgba(255,255,255,0.7); line-height: 1.6; }
+
+  /* ── ABOUT PAGE ── */
+  .about-hero { background: var(--navy); padding: 5rem 0; }
+  .about-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 4rem; align-items: start; }
+  .credential-list { list-style: none; }
+  .credential-list li {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--mid-grey);
+    font-size: 0.93rem;
+    color: var(--dark-grey);
+    display: flex;
+    gap: 0.75rem;
+  }
+  .credential-list li::before { content: '✦'; color: var(--coral); flex-shrink: 0; }
+
+  /* ── FAQ ── */
+  .faq-item { border-bottom: 1px solid var(--mid-grey); }
+  .faq-q {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--navy);
+    padding: 1.25rem 0;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+  }
+  .faq-q:hover { color: var(--coral); }
+  .faq-q span { font-size: 1.4rem; color: var(--coral); font-weight: 300; }
+  .faq-a { padding: 0 0 1.25rem; font-size: 0.95rem; color: var(--dark-grey); line-height: 1.7; display: none; }
+  .faq-a.open { display: block; }
+
+  /* ── CONTACT PAGE ── */
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+  .contact-form { display: flex; flex-direction: column; gap: 1.25rem; }
+  .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+  .form-label { font-size: 0.85rem; font-weight: 700; color: var(--navy); letter-spacing: 0.04em; }
+  .form-input {
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--mid-grey);
+    border-radius: 3px;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--dark-grey);
+    transition: border-color 0.2s;
+    outline: none;
+    background: var(--white);
+  }
+  .form-input:focus { border-color: var(--navy); }
+  textarea.form-input { min-height: 120px; resize: vertical; }
+  .form-submit {
+    background: var(--coral);
+    color: var(--white);
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 0.95rem;
+    padding: 0.9rem 2rem;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    align-self: flex-start;
+    transition: background 0.2s;
+    letter-spacing: 0.03em;
+  }
+  .form-submit:hover { background: var(--coral-dark); }
+  .contact-info-item { display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 1.75rem; }
+  .contact-info-icon {
+    width: 42px;
+    height: 42px;
+    background: rgba(13,59,102,0.07);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .contact-info-icon svg { width: 20px; height: 20px; stroke: var(--navy); fill: none; stroke-width: 1.5; }
+  .contact-info-label { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--coral); margin-bottom: 0.25rem; }
+  .contact-info-val { font-size: 0.95rem; color: var(--dark-grey); }
+
+  /* ── FOOTER ── */
+  footer { background: var(--navy-dark); padding: 3rem 0 2rem; }
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 3rem;
+  }
+  .footer-brand {
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: var(--white);
+    font-size: 1rem;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.75rem;
+  }
+  .footer-tagline { font-size: 0.85rem; color: rgba(255,255,255,0.5); line-height: 1.6; max-width: 280px; margin-bottom: 1.25rem; }
+  .footer-credentials { font-size: 0.78rem; color: var(--mint); font-weight: 600; }
+  .footer-col-title { font-family: var(--font-display); font-weight: 700; color: var(--white); font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1rem; }
+  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+  .footer-links li a {
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+    font-size: 0.88rem;
+    cursor: pointer;
+    transition: color 0.2s;
+  }
+  .footer-links li a:hover { color: var(--mint); }
+  .footer-bottom {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.5rem 2rem 0;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-copy { font-size: 0.8rem; color: rgba(255,255,255,0.35); }
+  .footer-mint-rule { width: 40px; height: 2px; background: var(--mint); }
+
+  /* ── PAGE HEADER ── */
+  .page-header { background: var(--navy); padding: 4rem 0; }
+  .page-header h1 {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.1;
+    margin-bottom: 0.75rem;
+  }
+  .page-header p { color: rgba(255,255,255,0.7); font-size: 1.05rem; max-width: 560px; line-height: 1.65; }
+  .breadcrumb { font-size: 0.8rem; color: var(--mint); margin-bottom: 1rem; letter-spacing: 0.06em; cursor: pointer; }
+  .breadcrumb:hover { text-decoration: underline; }
+
+  /* ── MINT DIVIDER ── */
+  .mint-divider { height: 4px; background: var(--mint); width: 48px; margin-bottom: 2rem; }
+  .mint-divider-center { margin: 0 auto 2rem; }
+
+  /* ── EVIDENCE STATS ── */
+  .evidence-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+  .evidence-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 4px;
+    padding: 1.75rem 1.5rem;
+    text-align: center;
+  }
+  .evidence-num {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--mint);
+    margin-bottom: 0.4rem;
+    line-height: 1;
+  }
+  .evidence-label { font-size: 0.82rem; color: rgba(255,255,255,0.6); line-height: 1.5; }
+
+  /* ── SCROLL NOTICE ── */
+  .page-top-rule { height: 4px; background: var(--coral); }
+
+  .tag {
+    display: inline-block;
+    background: rgba(249,87,56,0.1);
+    color: var(--coral);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.6rem;
+    border-radius: 2px;
+    margin-bottom: 1rem;
+  }
+
+  select.form-input { appearance: auto; }
+</style>
+</head>
+<body>
+
+<!-- ── NAVIGATION ── -->
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" onclick="showPage('home')">
+      SAMI GICHKI
+      <span>Consulting</span>
+    </a>
+    <ul class="nav-links">
+      <li><a onclick="showPage('home')" id="nav-home" class="active">Home</a></li>
+      <li><a onclick="showPage('about')" id="nav-about">About</a></li>
+      <li><a onclick="showPage('services')" id="nav-services">Services</a></li>
+      <li><a onclick="showPage('sectors')" id="nav-sectors">Sectors</a></li>
+      <li><a onclick="showPage('insights')" id="nav-insights">Insights</a></li>
+      <li><a onclick="showPage('contact')" id="nav-contact" class="nav-cta">Book a call</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ════════════════════════════════════════
+     HOME PAGE
+════════════════════════════════════════ -->
+<div id="page-home" class="page active">
+  <div class="page-top-rule"></div>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-inner">
+        <div>
+          <div class="hero-badge">Culture · Governance · Risk</div>
+          <h1 class="hero-title">
+            Understand your risk <em>before</em> it becomes a crisis.
+          </h1>
+          <p class="hero-lead">
+            Sami Gichki Consulting delivers rigorous, independent diagnostics that surface hidden cultural and governance risks across the NHS, charities, housing associations and public bodies.
+          </p>
+          <div class="hero-actions">
+            <button class="btn-primary" onclick="showPage('services')">Explore the diagnostic</button>
+            <button class="btn-ghost" onclick="showPage('contact')">Book a scoping call</button>
+          </div>
+        </div>
+        <div>
+          <div class="hero-stats">
+            <div class="hero-stat">
+              <div class="hero-stat-num">6–10</div>
+              <div class="hero-stat-label">Weeks from start to report</div>
+            </div>
+            <div class="hero-stat">
+              <div class="hero-stat-num">3</div>
+              <div class="hero-stat-label">Diagnostic domains assessed</div>
+            </div>
+            <div class="hero-stat">
+              <div class="hero-stat-num">100%</div>
+              <div class="hero-stat-label">Tailored to your context</div>
+            </div>
+            <div class="hero-stat">
+              <div class="hero-stat-num">2.3×</div>
+              <div class="hero-stat-label">Higher cash flow from inclusive teams</div>
+            </div>
+            <div class="hero-stat">
+              <div class="hero-stat-num">21%</div>
+              <div class="hero-stat-label">Productivity uplift from engaged staff</div>
+            </div>
+            <div class="hero-stat">
+              <div class="hero-stat-num">200%</div>
+              <div class="hero-stat-label">Cost of replacing an employee</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem -->
+  <section class="section">
+    <div class="container">
+      <span class="eyebrow">The problem</span>
+      <h2 class="section-title">Most failures are visible in hindsight.<br>Few organisations act in time.</h2>
+      <p class="section-subtitle">Culture risk accumulates quietly. By the time issues surface publicly, the underlying conditions have been present for years.</p>
+      <div class="grid-3">
+        <div class="card card-accent">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          </div>
+          <div class="card-title">Culture goes unexamined</div>
+          <div class="card-body">Values are stated but not lived. Behaviours that undermine safety and inclusion go unchallenged because no structured mechanism exists to surface them.</div>
+        </div>
+        <div class="card card-accent">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          </div>
+          <div class="card-title">Governance lacks teeth</div>
+          <div class="card-body">Boards and leadership teams lack the tools to identify where accountability gaps exist in practice — not just on paper.</div>
+        </div>
+        <div class="card card-accent">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24"><path d="M2 20h20M6 20V10l6-6 6 6v10"/><path d="M10 20v-5h4v5"/></svg>
+          </div>
+          <div class="card-title">Risk is invisible until too late</div>
+          <div class="card-body">The cost of unaddressed risk — staff turnover, regulatory intervention, safeguarding failures — is measurable. So is the cost of prevention, which is significantly lower.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Three Domains -->
+  <section class="section section-navy">
+    <div class="container">
+      <span class="eyebrow eyebrow-mint">The diagnostic</span>
+      <h2 class="section-title section-title-light">Three domains. One clear picture.</h2>
+      <p class="section-subtitle section-subtitle-light">The Culture and Governance Risk Diagnostic examines your organisation across three interconnected domains — producing evidence your board can act on.</p>
+      <div class="grid-3" style="margin-top:1rem;">
+        <div class="domain-block" style="flex-direction:column; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.09); border-radius:4px; padding:2rem;">
+          <div class="domain-num">01</div>
+          <div class="domain-content">
+            <h3>Culture & Lived Experience</h3>
+            <p>How do people actually experience your organisation? Are values embedded in day-to-day practice? Where are the psychological safety gaps?</p>
+            <ul class="domain-list">
+              <li>Psychological safety assessment</li>
+              <li>Values-to-practice alignment</li>
+              <li>Inclusion and wellbeing indicators</li>
+              <li>Reporting confidence</li>
+            </ul>
+          </div>
+        </div>
+        <div class="domain-block" style="flex-direction:column; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.09); border-radius:4px; padding:2rem;">
+          <div class="domain-num">02</div>
+          <div class="domain-content">
+            <h3>Governance & Accountability</h3>
+            <p>Are roles, responsibilities and oversight clear? How are decisions made and challenged? Where are the accountability blind spots?</p>
+            <ul class="domain-list">
+              <li>Decision-making transparency</li>
+              <li>Board line-of-sight to culture risk</li>
+              <li>Escalation pathway effectiveness</li>
+              <li>Trustee and SLT accountability</li>
+            </ul>
+          </div>
+        </div>
+        <div class="domain-block" style="flex-direction:column; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.09); border-radius:4px; padding:2rem;">
+          <div class="domain-num">03</div>
+          <div class="domain-content">
+            <h3>Risk Awareness & Readiness</h3>
+            <p>Does leadership have visibility of emerging risk? Are there early-warning mechanisms in place? How does the organisation learn from incidents?</p>
+            <ul class="domain-list">
+              <li>Risk horizon mapping</li>
+              <li>Pattern identification and forecasting</li>
+              <li>Incident learning culture</li>
+              <li>Early-warning indicators</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:2.5rem; text-align:center;">
+        <button class="btn-ghost" onclick="showPage('services')">See how the diagnostic works →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pilot / Investment -->
+  <section class="section">
+    <div class="container">
+      <div class="pilot-banner">
+        <div>
+          <span class="tag">Pilot opportunity</span>
+          <h3>Investing in the diagnostic is investing in your organisation's resilience.</h3>
+          <p>We are currently offering a limited number of organisations the opportunity to pilot the Culture and Governance Risk Diagnostic. This is designed for leaders who recognise that the cost of inaction — in turnover, regulatory risk, and reputational damage — consistently outweighs the cost of independent, evidence-led review. Get in touch to discuss whether this is the right moment for your organisation.</p>
+        </div>
+        <button class="btn-primary" onclick="showPage('contact')" style="white-space:nowrap;">Express interest</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="section section-alt">
+    <div class="container">
+      <span class="eyebrow">What clients say</span>
+      <h2 class="section-title">Trusted across sectors</h2>
+      <div class="grid-3" style="margin-top:1rem; gap:2rem;">
+        <div class="testimonial">
+          <div class="testimonial-quote">"Your way of anecdotally giving information in a structured way — maintaining an informal conversational style while ensuring it was easy to follow and seek out key parts of your messaging — was most valuable."</div>
+          <div class="testimonial-author">Head of Programme</div>
+          <div class="testimonial-role">BBC Children in Need</div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-quote">"A really deep understanding of the value of lived experience and community involvement in research and innovation. Your values and approach were clearly well aligned with our objectives."</div>
+          <div class="testimonial-author">Chief Executive</div>
+          <div class="testimonial-role">Young Foundation</div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-quote">"It was a dream to work with Sami. His passion, experience and commitment to opening up equitable opportunity spoke to our audience and inspired us to reflect on how our practices can work better for all."</div>
+          <div class="testimonial-author">Senior Officer</div>
+          <div class="testimonial-role">Arts Council England</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sectors strip -->
+  <section class="section">
+    <div class="container">
+      <span class="eyebrow">Who we work with</span>
+      <h2 class="section-title">Built for the sectors that serve communities.</h2>
+      <p class="section-subtitle">The diagnostic is designed for any organisation that wants to lead with integrity — wherever it sits in the public, voluntary or social sector.</p>
+      <div class="sector-grid">
+        <div class="sector-card" onclick="showPage('sectors')">
+          <div class="sector-icon">
+            <svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-4h6v4"/></svg>
+          </div>
+          <div>
+            <div class="sector-name">NHS Trusts & ICBs</div>
+            <div class="sector-desc">Strengthening patient safety culture and board oversight at every level.</div>
+          </div>
+        </div>
+        <div class="sector-card" onclick="showPage('sectors')">
+          <div class="sector-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div>
+            <div class="sector-name">Charities</div>
+            <div class="sector-desc">Ensuring governance keeps pace with mission — and meets the Charity Commission's expectations.</div>
+          </div>
+        </div>
+        <div class="sector-card" onclick="showPage('sectors')">
+          <div class="sector-icon">
+            <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+          </div>
+          <div>
+            <div class="sector-name">Housing Associations</div>
+            <div class="sector-desc">Building accountability into complex, resident-facing organisations.</div>
+          </div>
+        </div>
+        <div class="sector-card" onclick="showPage('sectors')">
+          <div class="sector-icon">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div>
+            <div class="sector-name">Social Enterprises</div>
+            <div class="sector-desc">Embedding values and managing growth-related risk before complexity increases.</div>
+          </div>
+        </div>
+        <div class="sector-card" onclick="showPage('sectors')">
+          <div class="sector-icon">
+            <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <div>
+            <div class="sector-name">Local Authorities</div>
+            <div class="sector-desc">Accountability and culture review across complex, multi-team public structures.</div>
+          </div>
+        </div>
+        <div class="sector-card" onclick="showPage('sectors')">
+          <div class="sector-icon">
+            <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          </div>
+          <div>
+            <div class="sector-name">Education & Children's Services</div>
+            <div class="sector-desc">Safeguarding governance, inspection readiness, and leadership culture.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why SGC -->
+  <section class="section section-navy">
+    <div class="container">
+      <span class="eyebrow eyebrow-mint">Why Sami Gichki Consulting</span>
+      <h2 class="section-title section-title-light">Independent. Evidence-led. Built on lived experience.</h2>
+      <div class="grid-2" style="margin-top:2rem; gap:2rem;">
+        <div style="display:flex; gap:1rem; align-items:flex-start;">
+          <div style="width:4px; height:100%; background:var(--mint); border-radius:2px; flex-shrink:0; min-height:60px;"></div>
+          <div>
+            <div style="font-family:var(--font-display); font-weight:700; color:var(--white); margin-bottom:0.4rem;">Coproduction at the core</div>
+            <div style="color:rgba(255,255,255,0.68); font-size:0.93rem; line-height:1.65;">Findings are built with your teams, not delivered to them. This produces solutions that staff recognise as their own and are more likely to act on.</div>
+          </div>
+        </div>
+        <div style="display:flex; gap:1rem; align-items:flex-start;">
+          <div style="width:4px; height:100%; background:var(--mint); border-radius:2px; flex-shrink:0; min-height:60px;"></div>
+          <div>
+            <div style="font-family:var(--font-display); font-weight:700; color:var(--white); margin-bottom:0.4rem;">Cross-sector expertise</div>
+            <div style="color:rgba(255,255,255,0.68); font-size:0.93rem; line-height:1.65;">Spanning NHS, housing, social enterprise and the voluntary sector — with board-level experience and academic research credentials.</div>
+          </div>
+        </div>
+        <div style="display:flex; gap:1rem; align-items:flex-start;">
+          <div style="width:4px; height:100%; background:var(--mint); border-radius:2px; flex-shrink:0; min-height:60px;"></div>
+          <div>
+            <div style="font-family:var(--font-display); font-weight:700; color:var(--white); margin-bottom:0.4rem;">Trauma-informed practice</div>
+            <div style="color:rgba(255,255,255,0.68); font-size:0.93rem; line-height:1.65;">All interviews and focus groups are conducted with clear informed consent, psychological safety, and active attention to participant wellbeing throughout.</div>
+          </div>
+        </div>
+        <div style="display:flex; gap:1rem; align-items:flex-start;">
+          <div style="width:4px; height:100%; background:var(--mint); border-radius:2px; flex-shrink:0; min-height:60px;"></div>
+          <div>
+            <div style="font-family:var(--font-display); font-weight:700; color:var(--white); margin-bottom:0.4rem;">Genuinely independent</div>
+            <div style="color:rgba(255,255,255,0.68); font-size:0.93rem; line-height:1.65;">Free from institutional bias or vested interests. Sami Gichki Consulting operates as a trusted external voice — which is why staff engage honestly with the process.</div>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:3rem;">
+        <div class="values-row">
+          <div class="value-item">
+            <div class="value-word">Humanity</div>
+            <div class="value-desc">Keeping humans at the core of how systems operate</div>
+          </div>
+          <div class="value-item">
+            <div class="value-word">Integrity</div>
+            <div class="value-desc">Ethical practice; always putting those we work with first</div>
+          </div>
+          <div class="value-item">
+            <div class="value-word">Innovation</div>
+            <div class="value-desc">Doing things differently to achieve better outcomes</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section" style="text-align:center;">
+    <div class="container">
+      <div class="mint-divider mint-divider-center"></div>
+      <h2 class="section-title">Ready to get clear on your risk?</h2>
+      <p class="section-subtitle" style="margin:0 auto 2rem;">Getting started is straightforward. A 30-minute scoping call costs nothing and helps us both assess whether the diagnostic is the right fit for your organisation, right now.</p>
+      <button class="btn-primary" onclick="showPage('contact')" style="font-size:1rem; padding:1rem 2.5rem;">Book a scoping call</button>
+    </div>
+  </section>
+</div>
+
+
+<!-- ════════════════════════════════════════
+     ABOUT PAGE
+════════════════════════════════════════ -->
+<div id="page-about" class="page">
+  <div class="page-top-rule"></div>
+  <div class="page-header">
+    <div class="container">
+      <div class="breadcrumb" onclick="showPage('home')">← Home</div>
+      <h1>About Sami Gichki Consulting</h1>
+      <p>Rigorous, principled, people-centred. Rooted in the communities we serve and the values we hold.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="about-grid">
+        <div>
+          <span class="eyebrow">Founder & Principal Consultant</span>
+          <h2 class="section-title">Sami Gichki MIoD FRSA</h2>
+          <div class="mint-divider"></div>
+          <p style="font-size:1.05rem; line-height:1.75; color:var(--dark-grey); margin-bottom:1.5rem;">
+            Sami Gichki Consulting was founded on a simple premise: that organisations which understand their culture in depth are more resilient, more effective, and better places to work. Culture is shaped from the bottom up as much as the other way round. What people experience on the ground determines organisational health far more reliably than what any policy document says.
+          </p>
+          <p style="font-size:1rem; line-height:1.75; color:var(--dark-grey); margin-bottom:1.5rem;">
+            Sami brings extensive cross-sector experience spanning the NHS, housing, social enterprise and the voluntary sector, combined with board-level governance expertise accumulated across a portfolio of trustee and non-executive roles. He is a published researcher and co-author on co-production methodology, holds the Member of the Institute of Directors (MIoD) and Fellow of the Royal Society of Arts (FRSA) credentials, and is the co-founder of Humanity 1st — a global ethical leadership movement.
+          </p>
+          <p style="font-size:1rem; line-height:1.75; color:var(--dark-grey);">
+            Every engagement is grounded in lived experience, non-extractive practice, and genuine partnership with the organisations Sami works with. The diagnostic is not something done to an organisation — it is built with it.
+          </p>
+        </div>
+        <div>
+          <div class="card" style="margin-bottom:1.5rem;">
+            <div style="font-family:var(--font-display); font-weight:700; color:var(--navy); margin-bottom:1rem; font-size:1rem;">Credentials & Affiliations</div>
+            <ul class="credential-list">
+              <li>Member of the Institute of Directors (MIoD)</li>
+              <li>Fellow of the Royal Society of Arts (FRSA)</li>
+              <li>Trustee — Young Roots</li>
+              <li>Trustee — Sheila McKechnie Foundation</li>
+              <li>Trustee — Intergenerational England</li>
+              <li>Board Member — Euro Youth Mental Health</li>
+              <li>iWill Fund Representative</li>
+              <li>Former Chair — Manchester City of Sanctuary</li>
+              <li>Co-founder — Humanity 1st</li>
+              <li>Published researcher — UK Longitudinal Linkage Collaboration</li>
+            </ul>
+          </div>
+          <div style="background:var(--navy); border-radius:4px; padding:1.5rem; color:var(--white);">
+            <div style="font-family:var(--font-display); font-weight:700; margin-bottom:0.5rem;">Get in touch</div>
+            <div style="font-size:0.88rem; color:rgba(255,255,255,0.7); margin-bottom:1.25rem;">For new enquiries, partnership conversations or press requests.</div>
+            <a href="mailto:hello@samigichki.com" style="color:var(--mint); font-size:0.9rem; font-weight:600; text-decoration:none;">hello@samigichki.com</a>
+            <div style="margin-top:1rem;">
+              <button class="btn-primary" onclick="showPage('contact')" style="font-size:0.88rem; padding:0.65rem 1.25rem;">Book a call</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values section -->
+  <section class="section section-navy">
+    <div class="container">
+      <span class="eyebrow eyebrow-mint">Our approach</span>
+      <h2 class="section-title section-title-light">Principled practice, every time.</h2>
+      <p class="section-subtitle section-subtitle-light">These are not aspirational values on a wall. They are the method by which every engagement is designed, delivered and evaluated.</p>
+      <div class="grid-3" style="margin-top:2rem; gap:1.5rem;">
+        <div class="card" style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1);">
+          <div class="card-title" style="color:var(--mint);">Credible</div>
+          <div class="card-body" style="color:rgba(255,255,255,0.7);">Evidence-based, precise, sector-literate. We use specific frameworks, benchmarked data and sector language — not generalisations.</div>
+        </div>
+        <div class="card" style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1);">
+          <div class="card-title" style="color:var(--mint);">Accessible</div>
+          <div class="card-body" style="color:rgba(255,255,255,0.7);">Plain language, no jargon for jargon's sake. Reports are written for a leadership and board audience — not to impress, but to inform.</div>
+        </div>
+        <div class="card" style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1);">
+          <div class="card-title" style="color:var(--mint);">Human</div>
+          <div class="card-body" style="color:rgba(255,255,255,0.7);">Warm, collaborative, not corporate-cold. We work with people — including the people often last to be consulted about the organisations they sustain.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+
+<!-- ════════════════════════════════════════
+     SERVICES PAGE
+════════════════════════════════════════ -->
+<div id="page-services" class="page">
+  <div class="page-top-rule"></div>
+  <div class="page-header">
+    <div class="container">
+      <div class="breadcrumb" onclick="showPage('home')">← Home</div>
+      <h1>The Culture & Governance Risk Diagnostic</h1>
+      <p>A structured, independent engagement that gives your organisation a clear and honest picture of where culture and governance risk sits — and what to do about it.</p>
+    </div>
+  </div>
+
+  <!-- What it is -->
+  <section class="section">
+    <div class="container">
+      <span class="eyebrow">What is the diagnostic?</span>
+      <h2 class="section-title">A hands-on engagement, not a tick-box exercise.</h2>
+      <div class="grid-2" style="gap:4rem;">
+        <div>
+          <p style="font-size:1.05rem; line-height:1.75; color:var(--dark-grey); margin-bottom:1.25rem;">The Culture and Governance Risk Diagnostic (CGRD) is a proprietary structured assessment covering three domains: Culture & Lived Experience, Risk & Forecasting, and Governance & Strategy.</p>
+          <p style="line-height:1.75; color:var(--dark-grey); margin-bottom:1.25rem;">Unlike pulse surveys or HR-led reviews — which are often extractive by design, with data flowing upward and solutions handed downward — the CGRD uses a coproduction methodology. The diagnostic is built with your employees, not simply conducted on them.</p>
+          <p style="line-height:1.75; color:var(--dark-grey);">All interviews and focus groups are facilitated using trauma-informed practice, with clear informed consent, transparent data use, and active attention to participant wellbeing throughout.</p>
+        </div>
+        <div>
+          <div class="evidence-grid" style="grid-template-columns:1fr 1fr; background:var(--navy); border-radius:6px; padding:2rem; gap:1.25rem;">
+            <div style="text-align:center; padding:1rem 0; border-bottom:1px solid rgba(255,255,255,0.1);">
+              <div style="font-family:var(--font-display); font-weight:700; color:var(--mint); font-size:2rem; margin-bottom:0.35rem;">6–10</div>
+              <div style="font-size:0.82rem; color:rgba(255,255,255,0.6); line-height:1.5;">Weeks start to report</div>
+            </div>
+            <div style="text-align:center; padding:1rem 0; border-bottom:1px solid rgba(255,255,255,0.1);">
+              <div style="font-family:var(--font-display); font-weight:700; color:var(--mint); font-size:2rem; margin-bottom:0.35rem;">5–15</div>
+              <div style="font-size:0.82rem; color:rgba(255,255,255,0.6); line-height:1.5;">Individual interviews</div>
+            </div>
+            <div style="text-align:center; padding:1rem 0;">
+              <div style="font-family:var(--font-display); font-weight:700; color:var(--mint); font-size:2rem; margin-bottom:0.35rem;">3</div>
+              <div style="font-size:0.82rem; color:rgba(255,255,255,0.6); line-height:1.5;">Diagnostic domains</div>
+            </div>
+            <div style="text-align:center; padding:1rem 0;">
+              <div style="font-family:var(--font-display); font-weight:700; color:var(--mint); font-size:2rem; margin-bottom:0.35rem;">100%</div>
+              <div style="font-size:0.82rem; color:rgba(255,255,255,0.6); line-height:1.5;">Organisation-specific</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="section section-alt">
+    <div class="container">
+      <span class="eyebrow">How it works</span>
+      <h2 class="section-title">Five phases. Eight weeks.</h2>
+      <p class="section-subtitle">Designed to accommodate the working patterns of real organisations. Phases are sequential but can be compressed where the client has capacity and scheduling allows.</p>
+      <div class="process-steps">
+        <div class="process-step">
+          <div class="step-circle">1</div>
+          <div class="step-title">Discovery & scoping</div>
+          <div class="step-desc">Separate focus groups with SLT and staff. Scope agreed. Baseline survey launched.</div>
+        </div>
+        <div class="process-step">
+          <div class="step-circle">2</div>
+          <div class="step-title">Core diagnostic</div>
+          <div class="step-desc">One-to-one interviews and coproduction focus groups across role types and seniority.</div>
+        </div>
+        <div class="process-step">
+          <div class="step-circle">3</div>
+          <div class="step-title">Analysis</div>
+          <div class="step-desc">Thematic coding, sector benchmarking, and risk forecasting across all three domains.</div>
+        </div>
+        <div class="process-step">
+          <div class="step-circle coral">4</div>
+          <div class="step-title">Report & decision briefs</div>
+          <div class="step-desc">Full diagnostic report plus actionable decision briefs for your highest-identified risks.</div>
+        </div>
+        <div class="process-step">
+          <div class="step-circle coral">5</div>
+          <div class="step-title">Debrief workshop</div>
+          <div class="step-desc">Facilitated session with board and senior leadership — including defined staff representation.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Outputs -->
+  <section class="section">
+    <div class="container">
+      <span class="eyebrow">What you receive</span>
+      <h2 class="section-title">Board-ready outputs you can act on immediately.</h2>
+      <div class="grid-2" style="gap:3rem; align-items:start;">
+        <div>
+          <div class="output-item">
+            <div class="output-dot"></div>
+            <div>
+              <div class="output-title">Diagnostic Report</div>
+              <div class="output-desc">A comprehensive written report mapping culture and governance risks across all three domains, organised around cultural indicators — psychological safety, wellbeing, transparency, reporting confidence, values alignment — benchmarked against sector comparators.</div>
+            </div>
+          </div>
+          <div class="output-item">
+            <div class="output-dot"></div>
+            <div>
+              <div class="output-title">Risk Map</div>
+              <div class="output-desc">A visual, at-a-glance summary of where risks sit across the three domains and their severity, including a forward-looking risk forecast with an inductive approach to identifying likely consequences if risks go unaddressed.</div>
+            </div>
+          </div>
+          <div class="output-item">
+            <div class="output-dot"></div>
+            <div>
+              <div class="output-title">Decision Briefs</div>
+              <div class="output-desc">Short, focused documents (typically two to three pages) translating your highest-identified risks into plain-language evidence, coproduced solutions, and recommended next steps with indicative timelines. Designed to go directly into board and SLT discussions.</div>
+            </div>
+          </div>
+          <div class="output-item">
+            <div class="output-dot"></div>
+            <div>
+              <div class="output-title">Leadership Debrief</div>
+              <div class="output-desc">A facilitated session to walk through findings, answer questions and align on priorities. Staff representation is included by design — the debrief is not a closed governance conversation.</div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="card card-accent-mint">
+            <span class="tag">Pilot opportunity</span>
+            <div class="card-title" style="font-size:1.2rem; margin-bottom:1rem;">An investment in organisational resilience</div>
+            <p style="font-size:0.95rem; line-height:1.7; color:var(--dark-grey); margin-bottom:1.5rem;">We are offering a limited number of organisations the opportunity to pilot the CGRD. This is particularly suited to leaders who want independent evidence ahead of a regulatory review, period of growth, or governance renewal.</p>
+            <p style="font-size:0.95rem; line-height:1.7; color:var(--dark-grey); margin-bottom:1.75rem;">The cost of unaddressed culture and governance risk — in staff turnover, reputational damage, and regulatory exposure — consistently exceeds the investment in early, evidence-led review. We're happy to talk through the return on that investment during a scoping call.</p>
+            <button class="btn-primary" onclick="showPage('contact')">Book a scoping call</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section section-alt">
+    <div class="container">
+      <span class="eyebrow">Common questions</span>
+      <h2 class="section-title">Frequently asked</h2>
+      <div style="max-width:760px; margin-top:2rem;">
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">How disruptive will this be to our organisation? <span>+</span></div>
+          <div class="faq-a">The process is designed to be as light-touch as possible. We work around your schedule and can complete the diagnostic with minimal interruption to day-to-day operations. Phases are sequential but can be compressed where capacity and scheduling allow.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">How confidential is the process? <span>+</span></div>
+          <div class="faq-a">All findings are shared exclusively with the commissioning organisation. Interviews are conducted on a confidential basis and individual views are never attributed. The diagnostic operates under a named Data Ethics and Participant Protection Protocol, in full compliance with UK GDPR and the Data Protection Act 2018.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">Can we commission just part of the diagnostic? <span>+</span></div>
+          <div class="faq-a">Yes. We can scope a focused review of one domain, or tailor the engagement to a specific team, programme or governance question. All engagements are scoped individually — contact us to discuss your requirements.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">How long until we receive the report? <span>+</span></div>
+          <div class="faq-a">Typically 2–3 weeks after fieldwork is complete. For urgent commissions, an accelerated timeline can be made available.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">What happens if a concern meets the threshold for safeguarding escalation? <span>+</span></div>
+          <div class="faq-a">A clear escalation route is agreed with organisational leadership in the scoping phase and communicated to all participants in advance. All interviews are facilitated using trauma-informed practice with active attention to participant wellbeing.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">Is the diagnostic right for our organisation right now? <span>+</span></div>
+          <div class="faq-a">The diagnostic is most effective when leadership is genuinely open to hearing difficult findings and prepared to act on them. It is not appropriate as a standalone response to a live HR dispute, a safeguarding investigation, or an active regulatory enforcement process. We are transparent about these limits in every scoping conversation — which is free and without obligation.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Evidence base -->
+  <section class="section section-navy">
+    <div class="container">
+      <span class="eyebrow eyebrow-mint">The evidence base</span>
+      <h2 class="section-title section-title-light">Why culture and governance risk is a board priority.</h2>
+      <div class="evidence-grid" style="margin-top:2rem;">
+        <div class="evidence-card">
+          <div class="evidence-num">2.3×</div>
+          <div class="evidence-label">Higher cash flow per employee from diverse, inclusive teams</div>
+        </div>
+        <div class="evidence-card">
+          <div class="evidence-num">30%</div>
+          <div class="evidence-label">Performance improvement in inclusive team environments</div>
+        </div>
+        <div class="evidence-card">
+          <div class="evidence-num">200%</div>
+          <div class="evidence-label">Of annual salary: the cost of replacing a single employee</div>
+        </div>
+        <div class="evidence-card">
+          <div class="evidence-num">4×</div>
+          <div class="evidence-label">Higher revenue growth in organisations with strong cultures</div>
+        </div>
+      </div>
+      <p style="color:rgba(255,255,255,0.5); font-size:0.8rem; margin-top:1.5rem;">Sources: Gallup, NCVO/CIPD workforce data, Financial Reporting Council, sector research.</p>
+    </div>
+  </section>
+</div>
+
+
+<!-- ════════════════════════════════════════
+     SECTORS PAGE
+════════════════════════════════════════ -->
+<div id="page-sectors" class="page">
+  <div class="page-top-rule"></div>
+  <div class="page-header">
+    <div class="container">
+      <div class="breadcrumb" onclick="showPage('home')">← Home</div>
+      <h1>Sectors we serve</h1>
+      <p>The diagnostic is designed for any organisation that wants to lead with integrity — wherever it sits in the public, voluntary or social sector.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div style="display:flex; flex-direction:column; gap:3rem;">
+
+        <div class="grid-2" style="gap:3rem; align-items:center; padding-bottom:3rem; border-bottom:1px solid var(--mid-grey);">
+          <div>
+            <span class="eyebrow">NHS Trusts & ICBs</span>
+            <h2 class="section-title" style="font-size:1.6rem;">Strengthening patient safety culture and board oversight</h2>
+            <div class="mint-divider"></div>
+            <p style="line-height:1.75; color:var(--dark-grey); margin-bottom:1rem;">The NHS faces uniquely intense scrutiny on culture — from CQC inspection frameworks to the Ockenden and Francis inquiries, it is clear that patient safety depends on the conditions in which staff operate. The CGRD gives NHS Trusts and ICBs independent, board-level evidence of where culture and governance risk sits.</p>
+            <p style="line-height:1.75; color:var(--dark-grey);">We understand the pressures of operating in complex, hierarchical systems where speaking up is difficult and culture change is slow. Our approach is designed to surface what formal structures miss.</p>
+          </div>
+          <div class="card card-accent">
+            <div class="card-title">Relevant for NHS organisations</div>
+            <ul style="list-style:none; padding:0; display:flex; flex-direction:column; gap:0.6rem; margin-top:0.75rem;">
+              <li style="font-size:0.9rem; color:var(--dark-grey); padding-left:1.25rem; position:relative;">
+                <span style="position:absolute; left:0; color:var(--mint); font-weight:700;">✓</span> CQC Well-Led domain preparation
+              </li>
+              <li style="font-size:0.9rem; color:var(--dark-grey); padding-left:1.25rem; position:relative;">
+                <span style="position:absolute; left:0; color:var(--mint); font-weight:700;">✓</span> Freedom to Speak Up environment assessment
+              </li>
+              <li style="font-size:0.9rem; color:var(--dark-grey); padding-left:1.25rem; position:relative;">
+                <span style="position:absolute; left:0; color:var(--mint); font-weight:700;">✓</span> Board-level culture risk visibility
+              </li>
+              <li style="font-size:0.9rem; color:var(--dark-grey); padding-left:1.25rem; position:relative;">
+                <span style="position:absolute; left:0; color:var(--mint); font-weight:700;">✓</span> Psychological safety across clinical teams
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="grid-2" style="gap:3rem; align-items:center; padding-bottom:3rem; border-bottom:1px solid var(--mid-grey);">
+          <div class="card card-accent-mint">
+            <div class="card-title">Relevant for charities</div>
+            <ul style="list-style:none; padding:0; display:flex; flex-direction:column; gap:0.6rem; margin-top:0.75rem;">
+              <li style="font-size:0.9rem; color:var(--dark-grey); padding-left:1.25rem; position:relative;">
+                <span style="position:absolute; left:0; color:var(--coral); font-weight:700;">✓</span> Charity Commission governance compliance
+              </li>
+              <li style="font-size:0.9rem; color:var(--dark-grey); padding-left:1.25rem; position:relative;">
+                <span style="position:absolute; left:0; color:var(--coral); font-weight:700;">✓</span> Trustee oversight of operational culture
+              </li>
+              <li style="font-size:0.9rem; color:var(--dark-grey); padding-left:1.25rem; position:relative;">
+                <span style="position:absolute; left:0; color:var(--coral); font-weight:700;">✓</span> Funder and commissioner assurance evidence
+              </li>
+              <li style="font-size:0.9rem; color:var(--dark-grey); padding-left:1.25rem; position:relative;">
+                <span style="position:absolute; left:0; color:var(--coral); font-weight:700;">✓</span> Staff retention in mission-critical roles
+              </li>
+            </ul>
+          </div>
+          <div>
+            <span class="eyebrow">Charities & VCS organisations</span>
+            <h2 class="section-title" style="font-size:1.6rem;">Ensuring governance keeps pace with mission</h2>
+            <div class="mint-divider"></div>
+            <p style="line-height:1.75; color:var(--dark-grey); margin-bottom:1rem;">Charities and voluntary sector organisations operate under constant resource pressure, with lean HR capacity and high reliance on staff motivation. When culture deteriorates, it deteriorates fast — and the cost in turnover, grievances, and funder confidence is significant.</p>
+            <p style="line-height:1.75; color:var(--dark-grey);">UK boards are legally and regulatorily required to monitor organisational culture on an ongoing basis. The CGRD directly enables boards to meet this duty with evidence — not assumption.</p>
+          </div>
+        </div>
+
+        <div class="grid-2" style="gap:3rem; align-items:center; padding-bottom:3rem; border-bottom:1px solid var(--mid-grey);">
+          <div>
+            <span class="eyebrow">Housing Associations</span>
+            <h2 class="section-title" style="font-size:1.6rem;">Accountability in complex, resident-facing organisations</h2>
+            <div class="mint-divider"></div>
+            <p style="line-height:1.75; color:var(--dark-grey); margin-bottom:1rem;">Housing associations face growing regulatory scrutiny under the Regulator of Social Housing's consumer standards. Culture — particularly around how staff treat residents and how concerns are escalated — is increasingly central to regulatory assessment.</p>
+            <p style="line-height:1.75; color:var(--dark-grey);">The CGRD supports housing associations in building the internal accountability structures and lived-experience evidence that regulators and investors increasingly expect to see.</p>
+          </div>
+          <div>
+            <span class="eyebrow">Social Enterprises & Local Authorities</span>
+            <h2 class="section-title" style="font-size:1.6rem;">Setting healthy foundations for growth</h2>
+            <div class="mint-divider"></div>
+            <p style="line-height:1.75; color:var(--dark-grey); margin-bottom:1rem;">Social enterprises growing rapidly often reach a point where informal culture norms — which worked at 10 people — begin to create risk at 30 or 40. The CGRD is particularly well-suited to organisations at this inflection point, before complexity makes culture change costly.</p>
+            <p style="line-height:1.75; color:var(--dark-grey);">For local authorities, the diagnostic supports multi-team accountability reviews and provides evidence for elected members on where governance and culture risk sits within delivery structures.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" style="text-align:center;">
+    <div class="container">
+      <h2 class="section-title">Not sure if the diagnostic is right for your sector?</h2>
+      <p class="section-subtitle" style="margin:0 auto 2rem;">Every scoping conversation is free and without obligation. We will always tell you honestly if the diagnostic is not the right fit — and suggest what might be.</p>
+      <button class="btn-primary" onclick="showPage('contact')">Book a free scoping call</button>
+    </div>
+  </section>
+</div>
+
+
+<!-- ════════════════════════════════════════
+     INSIGHTS PAGE
+════════════════════════════════════════ -->
+<div id="page-insights" class="page">
+  <div class="page-top-rule"></div>
+  <div class="page-header">
+    <div class="container">
+      <div class="breadcrumb" onclick="showPage('home')">← Home</div>
+      <h1>Insights & Resources</h1>
+      <p>Thinking on culture, governance and risk across the UK public and voluntary sectors — from the team at Sami Gichki Consulting.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <span class="eyebrow">Featured research</span>
+      <h2 class="section-title">From the work</h2>
+      <div class="grid-3" style="margin-bottom:4rem;">
+
+        <div class="card card-accent" style="display:flex; flex-direction:column; justify-content:space-between;">
+          <div>
+            <div style="font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--coral); margin-bottom:0.75rem;">Research · Coproduction</div>
+            <div class="card-title" style="font-size:1.05rem; margin-bottom:0.75rem;">Co-production with the UK Longitudinal Linkage Collaboration Citizen Panel</div>
+            <div class="card-body" style="margin-bottom:1.25rem;">Gichki, Garbovan, Flaig & Boyd (2026). A published preprint examining participatory approaches to data governance and research design with under-served communities.</div>
+          </div>
+          <div style="font-size:0.82rem; color:var(--dark-grey);">DOI: 10.21203/rs.3.rs-9204432/v1</div>
+        </div>
+
+        <div class="card card-accent">
+          <div style="font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--coral); margin-bottom:0.75rem;">Perspective · Governance</div>
+          <div class="card-title" style="font-size:1.05rem; margin-bottom:0.75rem;">Why boards need hard evidence on culture — not just policy</div>
+          <div class="card-body">The Financial Reporting Council is clear that boards cannot discharge their cultural oversight responsibility through documentation alone. This piece examines what evidence-led governance actually looks like in practice.</div>
+        </div>
+
+        <div class="card card-accent">
+          <div style="font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--coral); margin-bottom:0.75rem;">Perspective · Risk</div>
+          <div class="card-title" style="font-size:1.05rem; margin-bottom:0.75rem;">The invisible cost of unaddressed culture risk in small charities</div>
+          <div class="card-body">NCVO and CIPD data consistently show that culture-related issues are among the leading drivers of staff departure in small voluntary sector organisations. What does early identification actually look like?</div>
+        </div>
+
+      </div>
+
+      <span class="eyebrow">Coming soon</span>
+      <h2 class="section-title" style="font-size:1.6rem; margin-bottom:2rem;">More resources in development</h2>
+      <div class="grid-3">
+        <div class="card" style="opacity:0.7; border-style:dashed;">
+          <div style="font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--dark-grey); margin-bottom:0.75rem;">Guide · NHS</div>
+          <div class="card-title" style="font-size:1rem;">CQC Well-Led: a culture evidence framework for NHS boards</div>
+        </div>
+        <div class="card" style="opacity:0.7; border-style:dashed;">
+          <div style="font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--dark-grey); margin-bottom:0.75rem;">Guide · VCS</div>
+          <div class="card-title" style="font-size:1rem;">Governance readiness checklist for small charities (Charity Commission expectations)</div>
+        </div>
+        <div class="card" style="opacity:0.7; border-style:dashed;">
+          <div style="font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--dark-grey); margin-bottom:0.75rem;">Case study · Housing</div>
+          <div class="card-title" style="font-size:1rem;">Culture and accountability in a growing housing association: a diagnostic case study</div>
+        </div>
+      </div>
+      <div style="margin-top:2.5rem; padding:2rem; background:var(--light-grey); border-radius:4px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1.5rem;">
+        <div>
+          <div style="font-family:var(--font-display); font-weight:700; color:var(--navy); margin-bottom:0.4rem;">Stay informed</div>
+          <div style="font-size:0.9rem; color:var(--dark-grey);">New resources, research and sector commentary — straight to your inbox.</div>
+        </div>
+        <button class="btn-primary" onclick="showPage('contact')">Get in touch to be notified</button>
+      </div>
+    </div>
+  </section>
+</div>
+
+
+<!-- ════════════════════════════════════════
+     CONTACT PAGE
+════════════════════════════════════════ -->
+<div id="page-contact" class="page">
+  <div class="page-top-rule"></div>
+  <div class="page-header">
+    <div class="container">
+      <div class="breadcrumb" onclick="showPage('home')">← Home</div>
+      <h1>Get in touch</h1>
+      <p>A 30-minute scoping call costs nothing. We will always tell you honestly whether the diagnostic is the right fit for your organisation.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="contact-grid">
+        <div>
+          <span class="eyebrow">Send a message</span>
+          <h2 class="section-title" style="font-size:1.6rem; margin-bottom:2rem;">Start the conversation</h2>
+          <div class="contact-form">
+            <div class="grid-2" style="gap:1rem;">
+              <div class="form-group">
+                <label class="form-label">First name</label>
+                <input type="text" class="form-input" placeholder="First name">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Last name</label>
+                <input type="text" class="form-input" placeholder="Last name">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Work email</label>
+              <input type="email" class="form-input" placeholder="your@organisation.org.uk">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Organisation</label>
+              <input type="text" class="form-input" placeholder="Organisation name">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Sector</label>
+              <select class="form-input">
+                <option value="">Select your sector</option>
+                <option>NHS Trust or ICB</option>
+                <option>Charity or voluntary sector</option>
+                <option>Housing association</option>
+                <option>Social enterprise</option>
+                <option>Local authority</option>
+                <option>Education or children's services</option>
+                <option>Other public sector</option>
+                <option>Private sector</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">What are you looking to explore?</label>
+              <textarea class="form-input" placeholder="Tell us a little about your organisation and what's prompted you to get in touch. There's no obligation — we're happy to have a conversation."></textarea>
+            </div>
+            <button class="form-submit" onclick="handleSubmit(event)">Send message →</button>
+          </div>
+        </div>
+
+        <div>
+          <span class="eyebrow">Contact details</span>
+          <h2 class="section-title" style="font-size:1.6rem; margin-bottom:2rem;">Direct contact</h2>
+          <div class="contact-info-item">
+            <div class="contact-info-icon">
+              <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <div class="contact-info-label">Email</div>
+              <div class="contact-info-val"><a href="mailto:hello@samigichki.com" style="color:var(--navy); text-decoration:none;">hello@samigichki.com</a></div>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-info-icon">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <div class="contact-info-label">Response time</div>
+              <div class="contact-info-val">We typically respond within 2 working days. Proposals are issued within 3 working days of a scoping call.</div>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-info-icon">
+              <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <div class="contact-info-label">Location</div>
+              <div class="contact-info-val">Based in Egham, Surrey. Working across the UK.</div>
+            </div>
+          </div>
+
+          <div style="background:var(--navy); border-radius:6px; padding:2rem; margin-top:1rem;">
+            <div style="font-family:var(--font-display); font-weight:700; color:var(--white); margin-bottom:0.5rem;">Next steps after getting in touch</div>
+            <ol style="list-style:none; padding:0; display:flex; flex-direction:column; gap:0.75rem; margin-top:1rem;">
+              <li style="display:flex; gap:0.75rem; align-items:flex-start;">
+                <span style="background:var(--coral); color:var(--white); width:22px; height:22px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.75rem; font-weight:700; flex-shrink:0;">1</span>
+                <span style="color:rgba(255,255,255,0.75); font-size:0.9rem; line-height:1.5;">We get back to you within 2 working days to confirm your scoping call.</span>
+              </li>
+              <li style="display:flex; gap:0.75rem; align-items:flex-start;">
+                <span style="background:var(--coral); color:var(--white); width:22px; height:22px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.75rem; font-weight:700; flex-shrink:0;">2</span>
+                <span style="color:rgba(255,255,255,0.75); font-size:0.9rem; line-height:1.5;">A free 30-minute conversation to explore fit, clarify scope and answer questions.</span>
+              </li>
+              <li style="display:flex; gap:0.75rem; align-items:flex-start;">
+                <span style="background:var(--coral); color:var(--white); width:22px; height:22px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.75rem; font-weight:700; flex-shrink:0;">3</span>
+                <span style="color:rgba(255,255,255,0.75); font-size:0.9rem; line-height:1.5;">A tailored proposal with clear scope and timeline within 3 working days.</span>
+              </li>
+              <li style="display:flex; gap:0.75rem; align-items:flex-start;">
+                <span style="background:var(--mint); color:var(--navy); width:22px; height:22px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.75rem; font-weight:700; flex-shrink:0;">4</span>
+                <span style="color:rgba(255,255,255,0.75); font-size:0.9rem; line-height:1.5;">Most engagements begin within 2 weeks of sign-off.</span>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+
+<!-- ── FOOTER (shown on all pages) ── -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">SAMI GICHKI CONSULTING</div>
+      <div class="footer-tagline">Culture and Governance Risk Consultancy. Serving the NHS, Charities, Housing Associations and Public Bodies across the UK.</div>
+      <div class="footer-credentials">Sami Gichki MIoD FRSA · Founder & Principal Consultant</div>
+    </div>
+    <div>
+      <div class="footer-col-title">Navigation</div>
+      <ul class="footer-links">
+        <li><a onclick="showPage('home')">Home</a></li>
+        <li><a onclick="showPage('about')">About</a></li>
+        <li><a onclick="showPage('services')">Services</a></li>
+        <li><a onclick="showPage('sectors')">Sectors</a></li>
+        <li><a onclick="showPage('insights')">Insights</a></li>
+        <li><a onclick="showPage('contact')">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Contact</div>
+      <ul class="footer-links">
+        <li><a href="mailto:hello@samigichki.com">hello@samigichki.com</a></li>
+        <li><a>samigichki.co.uk</a></li>
+      </ul>
+      <div style="margin-top:1.5rem;">
+        <div class="footer-col-title">Values</div>
+        <div style="font-size:0.85rem; color:rgba(255,255,255,0.45); line-height:2;">Humanity · Integrity · Innovation</div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 Sami Gichki Consulting. All rights reserved.</div>
+    <div class="footer-mint-rule"></div>
+  </div>
+</footer>
+
+<!-- ── TOAST ── -->
+<div id="toast" style="position:fixed; bottom:2rem; right:2rem; background:var(--navy); color:var(--white); padding:1rem 1.5rem; border-radius:4px; font-size:0.9rem; font-family:var(--font-body); box-shadow:0 8px 32px rgba(0,0,0,0.2); display:none; z-index:999; border-left:4px solid var(--mint);">
+  Message received — we'll be in touch within 2 working days.
+</div>
+
+<script>
+  function showPage(id) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById('page-' + id).classList.add('active');
+    document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+    const navEl = document.getElementById('nav-' + id);
+    if (navEl) navEl.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function toggleFaq(el) {
+    const answer = el.nextElementSibling;
+    const span = el.querySelector('span');
+    const isOpen = answer.classList.contains('open');
+    document.querySelectorAll('.faq-a').forEach(a => a.classList.remove('open'));
+    document.querySelectorAll('.faq-q span').forEach(s => s.textContent = '+');
+    if (!isOpen) {
+      answer.classList.add('open');
+      span.textContent = '−';
+    }
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    const toast = document.getElementById('toast');
+    toast.style.display = 'block';
+    setTimeout(() => { toast.style.display = 'none'; }, 4000);
+  }
+</script>
+</body>
+</html>
